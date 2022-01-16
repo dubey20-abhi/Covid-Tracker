@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  height: 100vh;
+
+}
+ .App h1 {
+   font-size: 2rem;
+   margin-top: 10px;
+   margin-bottom: 5px;
+ }

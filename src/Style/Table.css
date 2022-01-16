@@ -1,0 +1,46 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    position: relative;
+    /* top: 5vh; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  table td, table th {
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  table tr:nth-child(odd){background-color: rgb(250, 229, 206);}
+
+  table tr:nth-child(even){background-color: rgb(255, 235, 200);}
+  
+  table tr:hover {background-color: #ddd;}
+  
+  table th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: rgb(87, 80, 80);
+    color: white;
+  }
+
+  .filter {
+    width: 300px;
+    margin: 0px auto;
+    margin-top: 0px;
+    padding: 10px 0px;
+  }
+
+  .filter input {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+  }

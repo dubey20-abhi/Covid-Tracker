@@ -1,0 +1,38 @@
+.stastics {
+    width: 80%;
+    margin: 0rem auto;
+    /* min-height: 2vh; */
+    background-color: rgb(189, 182, 182);
+}
+
+.stastics .box_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.box_wrapper .box {
+    width: 30%;
+    background-color: #fafafa;
+    box-shadow: 2px 2px 8px rgba(30,30,30,.2);
+    margin: 10px 10px;
+    text-align: center;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+.box_wrapper .box h2 {
+    margin: 10px 10px;
+    font-size: 1.6rem;
+    overflow: hidden;
+}
+
+.box_wrapper .box p{
+    font-size: 2.5rem;
+    margin: 10px 10px;
+    font-weight: 400;
+}
+
