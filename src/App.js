@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Details from './Component/Details';
 import { useState } from 'react/cjs/react.development';
@@ -10,7 +10,9 @@ function App() {
   const[countryData,setCountryData] = useState([]);
   const[loading,setLoading] = useState(true);
   const[loadingCountry,setLoadingCountry] = useState(true);
-  const[search, setSearch] = useState("");
+  const[searchText, setSearchText] = useState("");
+  let [filteredData] = useState();
+  const[filterData, setFilterData] = useState([]);
 
   const getCovidData = async ()=>{
     setLoading(true);
@@ -25,7 +27,6 @@ function App() {
     const actualData = data.response[0];
     setTotalCases(actualData);
     setLoading(false);
-    // console.log(actualData);
   };
 
   const getCountriesData = async ()=>{
@@ -38,7 +39,6 @@ function App() {
       }
     });
     const data = await res.json();
-    // console.log(data.response);
     let requiredData = data.response.map((d)=>{
       return {
         continent : d.continent,
@@ -53,47 +53,62 @@ function App() {
         cases1mpop : d.cases['1M_pop'],
       }
     })
-    // console.log(Array.isArray(requiredData));
-    // console.log(requiredData);
-    setCountryData(requiredData);
-    // setCountryData(data.response);
+    const dataR = requiredData.filter((val)=>{
+      return (val.continent != null)
+    })
+    setCountryData(dataR);
     setLoadingCountry(false);
-    // console.log(Array.isArray(countryData)) 
-    // console.log(countryData.length);
   };
 
-  const filterData = countryData.filter((val)=>{
-    if(search === "") {
-      return val;
-    }
-    else if((val.country === {search}) || 
-          (val.continent === {search})){
-              return val;
-    }
-  })
+  const searchTextHandler = (e)=>{
+    setSearchText(e.target.value);
+  };
+
+  const searchHandler = (searchText)=>{
+    filteredData = countryData.filter((val)=>{
+      return (val.continent.toLowerCase().includes(searchText.toLowerCase()) || val.country.toLowerCase().includes(searchText.toLowerCase()));
+    });
+    setFilterData(filteredData);
+  }
+
+  const clearAll = ()=>{
+    setSearchText("");
+    setFilterData([]);
+    getCountriesData();
+  };
+
+  const refresh = ()=>{
+    window.location.reload();
+  }
+  
 
   useEffect(()=>{
     getCovidData();
     getCountriesData();
-  },[]);
+    
+  },[filterData]);
 
   return (
     <div className="App">
-      <h1>Covid Tracker....</h1>
-      {loading ? <h1>Loading data</h1> 
-        : 
-          <Details totalCases={totalCases}/>
-      }
-      <div className='filter'>
-            <input value={search || ''} onChange={(e)=>{
-                setSearch(e.target.value)}} placeholder='Enter Country or Continent'/>
+      <div className='upper'>
+        <h1>Live Covid Tracker</h1>
+        {loading ? <h1>Loading data</h1> 
+          : 
+            <Details totalCases={totalCases}/>
+        }
+        <div className='filter'>
+              <input value={searchText || ''} onChange={(e)=>{
+                  searchTextHandler(e)}} placeholder='Enter Country or Continent'/>
+              <button className='search' onClick={()=>{searchHandler(searchText)}}>Search</button>
+              <button className='clear' onClick={()=>{clearAll()}}>Clear</button>
+              <button className='refresh' onClick={()=>{refresh()}}>Refresh</button>
+        </div>
       </div>
       {loadingCountry ? <h1>Loading list</h1>
-        :
-          //<Table countryData={countryData}/>
-          <TableSec countryData={filterData}/>
+        : filterData && filterData.length ?
+            <TableSec countryData={filterData}/> :
+              <TableSec countryData={countryData}/>
       }
-      {/* {countryData !== undefined && <Table countryData={countryData}/>} */}
     </div>
   );
 }

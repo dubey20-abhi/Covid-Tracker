@@ -6,16 +6,15 @@ function Details({totalCases}) {
         <div className='stastics'>
            <div class="box_wrapper">
                 <div class="box">
-                    <h2>Total Cases</h2>
+                    <h2>Confirmed</h2>
                     <p id="total_cases">{totalCases.cases.total}</p>
                 </div>
                 <div class="box">
-                    <h2>Total Death</h2>
+                    <h2>Death</h2>
                     <p id="total_death">{totalCases.deaths.total}</p>
                 </div>
-
                 <div class="box">
-                    <h2>Total Recovery</h2>
+                    <h2>Recoverd</h2>
                     <p id="total_recovered">{totalCases.cases.recovered}</p>
                 </div>
            </div>   

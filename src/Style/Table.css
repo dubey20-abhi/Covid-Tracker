@@ -3,7 +3,6 @@ table {
     border-collapse: collapse;
     width: 80%;
     position: relative;
-    /* top: 5vh; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -37,10 +36,149 @@ table {
   .filter input {
     width: 100%;
     text-align: center;
-    padding: 15px 0px;
+    padding: 10px 0px;
     border-radius: 15px;
-    border: none;
-    outline: none;
     font-size: 18px;
     font-weight: 400;
+  }
+
+  .filter button {
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    outline: none;
+    border-radius: 7px;
+    border: none;
+    color: white;
+  }
+
+  .filter .search {
+    background-color: rgb(75, 174, 85);
+  }
+  .filter .clear {
+    background-color: rgb(4, 166, 236);
+  }
+  .filter .refresh {
+    background-color: rgb(253, 84, 38);
+  }
+
+  .pagination {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .pagination input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+  }
+  .pagination button {
+    padding: 5px;
+    margin-left: 5px;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  .pagination button:hover {
+    padding: 5px;
+    margin-left: 5px;
+    font-weight: 200;
+    text-align: center;
+    background-color: rgb(119, 211, 119);
+  }
+
+  @media (max-width: 820px){
+    .filter {
+      width: 150px;
+      margin: 0px auto;
+      margin-top: 0px;
+      padding: 5px 0px;
+    }
+    .filter input {
+      padding: 5px 0px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 200;
+    }
+    .filter button {
+      padding: 2px;
+      margin-top: 2px;
+      margin-left: 2px;
+      border-radius: 4px;
+      font-size: 10px;
+    }
+
+    thead{
+      display: none;
+    }
+    td{
+      display: block;
+    } 
+    td:first-child{
+      background-color: black;
+      color: white;
+      text-align: center;
+      
+    }
+    td:nth-child(2)::before{
+      content: "Continent";
+    }
+    td:nth-child(3)::before{
+      content: "Total Cases";
+    }
+    td:nth-child(4)::before{
+      content: "Active Cases";
+    }
+    td:nth-child(5)::before{
+      content: "Total Recovery";
+    }
+    td:nth-child(6)::before{
+      content: "Total Death";
+    }
+    td:nth-child(7)::before{
+      content: "New Cases";
+    }
+   td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+   }
+
+   td::before{
+     position: absolute;
+     left: 0;
+     width: 50%;
+     padding-left: 15px;
+     font-weight: bold;
+     font-size: 14px;
+     text-align: left;
+   }
+
+   .pagination {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  .pagination input {
+    width: 30px;
+    padding: 2px;
+  }
+  .pagination span {
+    display: block;
+    font-size: 12px;
+  }
+  .pagination button {
+    padding: 2.5px;
+    margin-left: 2.5px;
+    font-size: 10px;
+  }
+
+  .pagination button:hover {
+    padding: 3px;
+    margin-left: 2px;
+    font-weight: 200;
+  }
+
   }

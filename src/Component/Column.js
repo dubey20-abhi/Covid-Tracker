@@ -1,11 +1,12 @@
 export const COLUMNS = [
     {
-        Header : 'Continent',
-        accessor : 'continent',
-    },
-    {
         Header : 'Country',
         accessor : 'country',
+        
+    },
+    {
+        Header : 'Continent',
+        accessor : 'continent',
     },
     {
         Header : 'Total Cases',

@@ -2,7 +2,6 @@ import React, { useMemo } from 'react'
 import { useTable, useSortBy, usePagination } from 'react-table'
 import {COLUMNS} from './Column'
 import '../Style/Table.css'
-import { useState } from 'react/cjs/react.development'
 
 function TableSec({countryData}) {
     const columns = useMemo(()=> COLUMNS, []);
@@ -62,15 +61,15 @@ function TableSec({countryData}) {
                 })}
             </tbody>
         </table>
-        <div>
+        <div className='pagination' >
             <span>
-                page{' '}
+                page{' : '}
                 <strong>
                     {pageIndex+1} of {pageOptions.length}
-                </strong>{' '}
+                </strong>{'  '}
             </span>
             <span>
-                | Go to page:{' '}
+                Go to page:{' '}
                 <input
                     type={"number"}
                     defaultValue={pageIndex + 1}
@@ -78,8 +77,6 @@ function TableSec({countryData}) {
                         const pageNo = e.target.value ? Number(e.target.value) - 1 : 0 ;
                         gotoPage(pageNo);
                     }}
-
-                    style={{width:"50px"}}
                 />
             </span>
             <button onClick={()=>{gotoPage(0)}} disabled={!canPreviousPage}>{'<<'}</button>
