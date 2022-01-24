@@ -9,7 +9,7 @@ table {
   
   table td, table th {
     border: 1px solid black;
-    padding: 5px;
+    padding: 15px;
   }
   
   table tr:nth-child(odd){background-color: rgb(250, 229, 206);}
@@ -115,6 +115,10 @@ table {
     }
     td{
       display: block;
+      padding-bottom: 15px !important;
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
     } 
     td:first-child{
       background-color: black;
@@ -144,6 +148,7 @@ table {
       text-align: right;
       padding-left: 50%;
       position: relative;
+      /* padding: 20px !important; */
    }
 
    td::before{
@@ -151,6 +156,7 @@ table {
      left: 0;
      width: 50%;
      padding-left: 15px;
+     padding-bottom: 10px;
      font-weight: bold;
      font-size: 14px;
      text-align: left;
@@ -179,6 +185,10 @@ table {
     padding: 3px;
     margin-left: 2px;
     font-weight: 200;
+  }
+
+  .trow {
+    min-height: 50px;
   }
 
   }

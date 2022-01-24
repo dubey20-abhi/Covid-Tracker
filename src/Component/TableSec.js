@@ -52,7 +52,7 @@ function TableSec({countryData}) {
                 {page.map((row, i) => {
                     prepareRow(row)
                     return (
-                        <tr {...row.getRowProps()}>
+                        <tr className='trow' {...row.getRowProps()}>
                                 {row.cells.map(cell => {
                                     return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                             })}
